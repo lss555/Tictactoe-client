@@ -12,6 +12,22 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+
+      <form id="sign-up">
+        <input name="credentials[email]" type="text" placeholder="Email here">
+        <input name="credentials[password]" type="password" placeholder="Password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password">
+        <button type="submit">Sign Up</button>
+      </form>
+      <p id="sign-up-message"></p>
+
+      <form id="sign-in">
+        <input name="credentials[email]" type="text" placeholder="Email here">
+        <input name="credentials[password]" type="password" placeholder="Password">
+        <button type="submit">Sign In</button>
+      </form>
+      <p id="sign-in-message"></p>
+
+      <h1>Tic tac toe</h1>
     </body>
 </html>
