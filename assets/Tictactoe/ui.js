@@ -12,14 +12,10 @@ const signUpFailure = function () {
   $('#sign-up-message').html('email already in use')
 }
 
-// const signInSuccess = function () {
-//   $('#sign-in-message').html('Succesfully signed in!')
-// }
+
 // SIGN IN ---------
 const signInSuccess = function (response) {
-  $('#sign-in-message').addClass('Success!')
-  $('#sign-in-message').removeClass('Failure')
-  $('#sign-in-message').text('Signed in!')
+  $('#sign-in-message').text(console.log('Signed in!'))
   store.user = response.user
 
   $('authenticated').show()
@@ -28,15 +24,11 @@ const signInSuccess = function (response) {
 }
 
 const signInFailure = function (data) {
-  $('#sign-in-message').addClass('Success')
-  $('#sign-in-message').removeClass('Failure')
   $('#sign-in-message').text('Failed to sign in')
 }
 // SIGN OUT ------------
 const signOutSuccess = function (data) {
-  $('#sign-out-message').addClass('Success')
-  $('#sign-out-message').removeClass('Failure')
-  $('#sign-out-message').text('Failed to sign in')
+  $('#sign-out-message').text('Signed in!')
   store.user = null
   $('.authenticated').hide()
   $('.unauthenticated').show()
@@ -44,35 +36,46 @@ const signOutSuccess = function (data) {
 }
 
 const signOutFailure = function (data) {
-  $('#sign-out-message').addClass('Success')
-  $('#sign-out-message').removeClass('Failure')
   $('#sign-out-message').text('Something went wrong!')
 }
 
-// const changePasswordSuccess = function () {
-//   $('#change-password-message').html('Password successfully changed')
-// }
-
 const changePasswordSuccess = function (response) {
   $('#change-password-message').text(console.log('Password changed!'))
-  // console.log(store)
   // store.user = response.user
-  // console.log('store: ', store)
-  // console.log('token: ', store.user.token)
 }
-
 const changePasswordFailure = function () {
   $('#change-password-message').text('Failed to change password')
 }
 
 const createGameSuccess = function (response) {
   $('#create-game-message').text(console.log('New game!'))
-  // store.game = response.game
-  // $('.cell').text('It works')
+  store.game = response.game
+  $('.cell').text('It works')
 }
 
 const createGameFailure = function () {
   $('#create-game-message').text('no new game :/')
+}
+
+const updateGameSuccess = function (response) {
+  $('#message').text('Choose your move')
+  console.log(response)
+
+  // store.player = player
+  // let i
+  // for (i = 0; i < 9; i++) {
+  //   const clickedCell = event.target
+  //   if (clickedCell !== '') {
+  //     $('#message').text('Please choose an empty space')
+  //   } else if (i % 2 === 0) {
+  //     $(event.target).text('x')
+  //   } else {
+  //     $(event.target).text('o')
+  //   }
+}
+
+const updateGameFailure = function () {
+  $('#message').text('Please choose an empty square')
 }
 
 module.exports = {
@@ -85,5 +88,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   createGameSuccess,
-  createGameFailure
+  createGameFailure,
+  updateGameSuccess,
+  updateGameFailure
 }

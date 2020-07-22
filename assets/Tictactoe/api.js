@@ -52,10 +52,30 @@ const createGame = function (data) {
   })
 }
 
+const updateGame = function (index, value, over) {
+  return $.ajax ({
+    url: config.apiUrl + '/games/' + store.game._id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: 0,
+          value: 'x'
+        },
+        over: false
+      }
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
-  createGame
+  createGame,
+  updateGame
 }
