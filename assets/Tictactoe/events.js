@@ -43,9 +43,20 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const onCreateGame = function (event) {
+  event.preventDefault()
+
+  // const form = event.target
+  // const formData = getFormFields(form)
+  api.createGame()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onCreateGame
 }

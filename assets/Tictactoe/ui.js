@@ -65,6 +65,16 @@ const changePasswordFailure = function () {
   $('#change-password-message').text('Failed to change password')
 }
 
+const createGameSuccess = function (response) {
+  $('#create-game-message').text(console.log('New game!'))
+  // store.game = response.game
+  // $('.cell').text('It works')
+}
+
+const createGameFailure = function () {
+  $('#create-game-message').text('no new game :/')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -73,5 +83,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  createGameSuccess,
+  createGameFailure
 }
