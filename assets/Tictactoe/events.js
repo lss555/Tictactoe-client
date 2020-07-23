@@ -55,8 +55,8 @@ const onCreateGame = function (event) {
 }
 
 const onUpdateGame = function (event) {
-  // event.preventDefault()
-  // const b0 = index('#0')
+  event.preventDefault()
+  // const b0 = data.index('#0')
   // const b1 = index('#1')
   // const b2 = index('#2')
   //
@@ -66,17 +66,16 @@ const onUpdateGame = function (event) {
   //   }
   // }
 
-  // let i
-  // for (i = 0; i < 9; i++) {
-  // }
   let i
-  for (i = 0; i < 9; i++) {
-    if (i % 2 === 0) {
-      $(event.target).text('x')
-    } else {
-      $(event.target).text('o')
+  // for (i = 0; i < 9; i++) {
+    for (i = 0; i < 9; i++) {
+      if (i % 2 === 0) {
+        $(event.target).text('x')
+      } else {
+        $(event.target).text('o')
+      }
     }
-  }
+  // }
   api.updateGame()
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFailure)
