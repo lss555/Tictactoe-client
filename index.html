@@ -13,6 +13,9 @@
     </head>
     <body>
       <h1>Tic tac toe</h1>
+
+    <!-- sign up form -->
+
       <form id="sign-up">
         <input name="credentials[email]" type="text" placeholder="Email here">
         <input name="credentials[password]" type="password" placeholder="Password">
@@ -20,6 +23,8 @@
         <button type="submit">Sign Up</button>
       </form>
       <p id="sign-up-message"></p>
+
+      <!-- sign in form -->
 
       <section class="unauthenticated">
         <form id="sign-in">
@@ -30,6 +35,8 @@
         </form>
       </section>
 
+      <!-- change password form -->
+
       <form id="change-password">
         <input name="passwords[old]" type="password" placeholder="Old Password">
         <input name="passwords[new]" type="password" placeholder="New Password">
@@ -37,11 +44,15 @@
       </form>
       <p id="change-password-message"></p>
 
+      <!-- sign out -->
+
       <section class="authenticated">
         <form id="sign-out">
           <button type="submit">Sign Out</button>
         </form>
       </section>
+
+      <!-- New game button -->
 
       <form id="create-game">
         <button type="submit">Play New Game</button>
@@ -63,19 +74,21 @@
           </div>
         </section> -->
 
+    <!-- Tictactoe board -->
+
         <section class='container'>
-    <div class='row h-100 board'>
-      <div class='col-4 box' data-cell-index = '0'></div>
-      <div class='col-4 box' data-cell-index = '1'></div>
-      <div class='col-4 box' data-cell-index = '2'></div>
+    <div class='board'>
+      <div class='col-4 box' id = 'b0'></div>
+      <div class='col-4 box' id = 'b1'></div>
+      <div class='col-4 box' id = 'b2'></div>
 
-      <div class='col-4 box' data-cell-index = '3'></div>
-      <div class='col-4 box' data-cell-index = '4'></div>
-      <div class='col-4 box' data-cell-index = '5'></div>
+      <div class='col-4 box' id = 'b3'></div>
+      <div class='col-4 box' id = 'b4'></div>
+      <div class='col-4 box' id = 'b5'></div>
 
-      <div class='col-4 box' data-cell-index = '6'></div>
-      <div class='col-4 box' data-cell-index = '7'></div>
-      <div class='col-4 box' data-cell-index = '8'></div>
+      <div class='col-4 box' id = 'b6'></div>
+      <div class='col-4 box' id = 'b7'></div>
+      <div class='col-4 box' id = 'b8'></div>
     </div>
   </section>
 

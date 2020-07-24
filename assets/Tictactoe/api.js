@@ -62,10 +62,10 @@ const updateGame = function (index, value, over) {
     data: {
       game: {
         cell: {
-          index: 0,
-          value: 'x'
+          index: index,
+          value: value
         },
-        over: false
+        over: over
       }
     }
   })
