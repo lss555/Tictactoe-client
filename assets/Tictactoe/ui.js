@@ -50,33 +50,33 @@ const changePasswordFailure = function () {
 const createGameSuccess = function (response) {
   $('#create-game-message').text(console.log('New game!'))
   store.game = response.game
-  $('.cell').text('It works')
+  // $('.cell').text('It works')
 }
 
 const createGameFailure = function () {
-  $('#create-game-message').text('no new game :/')
+  $('#create-game-message').text('no new game')
 }
 
-const updateGameSuccess = function (response) {
-  $('#message').text('Choose your move')
-  console.log(response)
+// const updateGameSuccess = function (response) {
+//   $('#message').text('Choose your move')
+//   console.log(response)
+// }
 
-  // store.player = player
-  // let i
-  // for (i = 0; i < 9; i++) {
-  //   const clickedCell = event.target
-  //   if (clickedCell !== '') {
-  //     $('#message').text('Please choose an empty space')
-  //   } else if (i % 2 === 0) {
-  //     $(event.target).text('x')
-  //   } else {
-  //     $(event.target).text('o')
-  //   }
-}
+// store.player = player
+// let i
+// for (i = 0; i < 9; i++) {
+//   const clickedCell = event.target
+//   if (clickedCell !== '') {
+//     $('#message').text('Please choose an empty space')
+//   } else if (i % 2 === 0) {
+//     $(event.target).text('x')
+//   } else {
+//     $(event.target).text('o')
+//   }
 
-const updateGameFailure = function () {
-  $('#message').text('Please choose an empty square')
-}
+// const updateGameFailure = function () {
+//   $('#message').text('Please choose an empty square')
+// }
 
 module.exports = {
   signUpSuccess,
@@ -88,7 +88,5 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   createGameSuccess,
-  createGameFailure,
-  updateGameSuccess,
-  updateGameFailure
+  createGameFailure
 }

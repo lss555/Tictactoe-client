@@ -9,6 +9,6 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#create-game').on('submit', authEvents.onCreateGame)
-  $('.container').on('click', authEvents.onUpdateGame)
+  // $('.container').on('click', authEvents.onUpdateGame)
   // $(".container")index.data("cell-index")
 })
