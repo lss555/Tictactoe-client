@@ -6,6 +6,7 @@ const store = require('../scripts/store')
 
 const signUpSuccess = function () {
   $('#sign-up-message').html('Succesfully signed up!')
+  $('#sign-up').hide()
 }
 
 const signUpFailure = function () {
@@ -17,10 +18,14 @@ const signUpFailure = function () {
 const signInSuccess = function (response) {
   $('#sign-in-message').text(console.log('Signed in!'))
   store.user = response.user
-
-  $('authenticated').show()
-  $('unauthenticated').hide()
   $('form').trigger('reset')
+
+  // hide and show for sign in
+  $('#sign-in').hide()
+  $('.container').show()
+  $('#create-game').show()
+  $('#sign-out').show()
+  $('#change-password').show()
 }
 
 const signInFailure = function (data) {
@@ -28,11 +33,14 @@ const signInFailure = function (data) {
 }
 // SIGN OUT ------------
 const signOutSuccess = function (data) {
-  $('#sign-out-message').text('Signed in!')
+  $('#sign-out-message').text('Signed out!')
   store.user = null
-  $('.authenticated').hide()
-  $('.unauthenticated').show()
-  $('form').trigger('reset')
+  $('#sign-out').show()
+  $('#sign-in').show()
+  $('#change-password').hide()
+  $('#create-game').hide()
+  $('.container').hide()
+  $('#sign-out').hide()
 }
 
 const signOutFailure = function (data) {
@@ -40,8 +48,9 @@ const signOutFailure = function (data) {
 }
 
 const changePasswordSuccess = function (response) {
-  $('#change-password-message').text(console.log('Password changed!'))
+  $('#change-password-message').text('Password changed!')
   // store.user = response.user
+  $('form').trigger('reset')
 }
 const changePasswordFailure = function () {
   $('#change-password-message').text('Failed to change password')
