@@ -21,7 +21,7 @@ const signInSuccess = function (response) {
 
   // hide and show for sign in
   $('#sign-in').hide()
-  $('.container').show()
+
   $('#create-game').show()
   $('#sign-out').show()
   $('#change-password').show()
@@ -61,6 +61,7 @@ const changePasswordFailure = function () {
 
 const createGameSuccess = function (response) {
   $('#create-game-message').text(console.log('New game!'))
+  $('.container').show()
   store.game = response.game
   console.log(store.game)
   // $('.cell').text('It works')
@@ -69,12 +70,12 @@ const createGameSuccess = function (response) {
 const createGameFailure = function () {
   $('#create-game-message').text('no new game')
 }
-
+// -------------------->
 // update game attempts, ideas, and x/o without ajax
 
 // const updateGameSuccess = function (event) {
 //   document.getElementById('gameboard').addEventListener('click', (event) => {
-//     let currentBox = event.target.innerText
+//     const currentBox = event.target.innerText
 //     if (!store.player) {
 //       store.player = 0
 //     }
@@ -88,119 +89,21 @@ const createGameFailure = function () {
 //       console.log('not a valid move')
 //     }
 //   })
+// }
+// ------------------->
 const updateGameSuccess = function (event) {
-  $('.container').click(function () {
-    // const currentBox = event.target
-    // store.currentBox = store.event
-    // const b0 = $('.b0')
-    // console.log(b0)
-    console.log(store.currentBox)
-
-    // make store.player = null after game won/tie is reached
-    if (!store.player) {
-      store.player = 0
-    }
-    if (store.player % 2 === 0 && store.currentBox.length !== 1) {
-      $(event.target).text('X')
-      store.player++
-    } else if (store.player % 2 === 1 && store.currentBox.length !== 1) {
-      // event.target.text() = 'O'
-      $(event.target).text('O')
-
-      store.player++
-    } else {
-      console.log('please choose a open space')
-    }
-  })
+  // $('.container').click(function () {
+  //   // If container is clicked give value of x or o depending on turn and not a blank spot and then print to corresponding currentBox
+  //   // then check weather gameOver is true or false and either procced or end game
+  // const location = store.location
+  //   let value
+  //   if (store.player % 2 === 0) {
+  //     value = 'X'
+  //   } else {
+  //     value = 'O'
+  //   }
+  // })
 }
-// x to o guessing game doesnt work yet
-// const player = ['X', 'O']
-//
-//   const clickedCell = function (cell) {
-//     if (cell === 'X') {
-//       store.player = 'O'
-//     } else {
-//       store.player = 'X'
-//     }
-//   }
-// const cellContents = clickedCell(store.player)
-// console.log(cellContents)
-// const clickedCell = event.target
-// for (i = 0; i < 9; i++) {
-//   if (i % 2 === 0) {
-//     $(event.target).text('x')
-//   } else {
-//     $(event.target).text('o')
-//   }
-// }
-
-// if ((b0 === b1) && (b1 === b2) && (b1 !== ' ')) {
-//   if (b1 === 'x') {
-//     console.log('X wins!')
-//   } else {
-//     console.log('O wins!')
-//   }
-//   if ((b3 === b4) && (b4 === b5) && (b3 !== ' ')) {
-//     if (b3 === 'x') {
-//       console.log('X wins!')
-//     } else {
-//       console.log('O wins!')
-//     }
-//   }
-//   if ((b6 === b7) && (b7 === b8) && (b6 !== ' ')) {
-//     if (b6 === 'x') {
-//       console.log('X wins!')
-//     } else {
-//       console.log('O wins!')
-//     }
-//   }
-//   if ((b0 === b4) && (b4 === b8) && (b4 !== ' ')) {
-//     if (b4 === 'x') {
-//       console.log('X wins!')
-//     } else {
-//       console.log('O wins!')
-//     }
-//   }
-//   if ((b6 === b4) && (b4 === b2) && (b4 !== ' ')) {
-//     if (b4 === 'x') {
-//       console.log('X wins!')
-//     } else {
-//       console.log('O wins!')
-//     }
-//   }
-//   if ((b1 === b4) && (b4 === b7) && (b4 !== ' ')) {
-//     if (b4 === 'x') {
-//       console.log('X wins!')
-//     } else {
-//       console.log('O wins!')
-//     }
-//   }
-//   if ((b2 === b5) && (b5 === b8) && (b5 !== ' ')) {
-//     if (b5 === 'x') {
-//       console.log('X wins!')
-//     } else {
-//       console.log('O wins!')
-//     }
-//   }
-//   if ((b0 === b3) && (b3 === b6) && (b3 !== ' ')) {
-//     if (b3 === 'x') {
-//       console.log('X wins!')
-//     } else {
-//       console.log('O wins!')
-//     }
-//   }
-// }
-
-// store.player = player
-// let i
-// for (i = 0; i < 9; i++) {
-//   const clickedCell = event.target
-//   if (clickedCell !== '') {
-//     $('#message').text('Please choose an empty space')
-//   } else if (i % 2 === 0) {
-//     $(event.target).text('X')
-//   } else {
-//     $(event.target).text('O')
 
 const updateGameFailure = function () {
   $('#message').text('Please choose an empty square')

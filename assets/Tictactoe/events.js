@@ -45,7 +45,7 @@ const onChangePassword = function (event) {
 
 const onCreateGame = function (event) {
   event.preventDefault()
-
+  store.player = 'X'
   const form = event.target
   const formData = getFormFields(form)
   api.createGame(formData)
@@ -55,14 +55,23 @@ const onCreateGame = function (event) {
 
 const onUpdateGame = function (event) {
   event.preventDefault()
+  // index is then stored in store.location
   const index = event.target.id
-
-  // trying to get value to be equal to x or o depending on turn -> ui
-  // and over to be true if there is a winner or all space taken up, else false
-  // could try having same inputs as api?
   store.location = index
+  // rotating between x and o and checking for empty spaces
+  if (index !== 'X' || index !== 'O') {
+    // const clickedCell = event.target
+    $(index).text(store.player)
+    console.log(store.player)
+  }
+
+// $('.container').click(function () {
+//   // If container is clicked give value of x or o depending on turn and not a blank spot and then print to corresponding currentBox
+//   // then check weather gameOver is true or false and either procced or end game
+let over
+  // could try having same inputs as api?
   console.log(index)
-  api.updateGame(index)
+  api.updateGame(index, over)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFailure)
 }

@@ -51,7 +51,7 @@ const createGame = function (data) {
     data: data
   })
 }
-// update game _id causing loads of problems, index, value, and over not defined?
+
 const updateGame = function (index, over) {
   let value
   if (store.player % 2 === 0) {
