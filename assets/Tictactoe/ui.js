@@ -103,6 +103,9 @@ const updateGameSuccess = function (response) {
     } else if (zeArray[2] && zeArray[2] === zeArray[4] && zeArray[2] === zeArray[6]) {
       $('#message').text('gz kid ' + store.value + ' wins')
       $('#gameboard').hide()
+    } else if (zeArray[0] && zeArray[1] && zeArray[2] && zeArray[3] && zeArray[4] && zeArray[5] && zeArray[6] && zeArray[7] && zeArray[8]) {
+      $('#message').text('Can\'t win everything I suppose')
+      $('#gameboard').hide()
     }
   }
   gameWon()
