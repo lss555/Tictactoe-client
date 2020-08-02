@@ -5,12 +5,12 @@ const store = require('../scripts/store')
 // sign up functions
 
 const signUpSuccess = function () {
-  $('#sign-up-message').html('Succesfully signed up!')
+  $('#sign-up-message').text('Succesfully signed up!')
   $('#sign-up').hide()
 }
 
 const signUpFailure = function () {
-  $('#sign-up-message').html('email already in use')
+  $('#sign-up-message').text('email already in use')
 }
 
 // SIGN IN ---------
@@ -18,6 +18,7 @@ const signInSuccess = function (response) {
   $('#sign-in-message').text(console.log('Signed in!'))
   store.user = response.user
   $('form').trigger('reset')
+  $('#sign-up-message').hide()
 
   // hide and show for sign in
   $('#sign-in').hide()
@@ -38,6 +39,7 @@ const signOutSuccess = function (data) {
   $('#sign-out-message').text('Signed out!')
   store.user = null
   // $('#sign-out').show()
+  $('#sign-up').show()
   $('#sign-in').show()
   $('#change-password').hide()
   $('#create-game').hide()
@@ -46,6 +48,7 @@ const signOutSuccess = function (data) {
   $('#games-played').hide()
   $('#message').hide()
   $('#games-played-message').hide()
+  $('#change-password-message').hide()
 }
 
 const signOutFailure = function (data) {
