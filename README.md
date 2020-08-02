@@ -18,8 +18,7 @@ do a bunch of if statments.  So I wrote down the winning possibilites and put th
 Through out the project I never had to much of strategy other then to work on completing
 one peice and then another until I get it finished
 
-unsolved problems, how to make a guest mode, and giving ranks, so say you account has one
-10 games so your rank goes up and then maybe agian 100, etc.
+unsolved problems, how to make a guest mode, and giving ranks to players who have given games played.
 
 
 
