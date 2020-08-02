@@ -26,6 +26,7 @@ const signInSuccess = function (response) {
   $('#sign-out').show()
   $('#change-password').show()
   $('#sign-up').hide()
+  $('#sign-up-message').hide()
 }
 
 const signInFailure = function (data) {
@@ -38,6 +39,7 @@ const signOutSuccess = function (data) {
   $('#sign-out-message').text('Signed out!')
   store.user = null
   // $('#sign-out').show()
+  $('#sign-up').show()
   $('#sign-in').show()
   $('#change-password').hide()
   $('#create-game').hide()
@@ -46,6 +48,8 @@ const signOutSuccess = function (data) {
   $('#games-played').hide()
   $('#message').hide()
   $('#games-played-message').hide()
+  $('#sign-out').hide()
+  $('#change-password-message').hide()
 }
 
 const signOutFailure = function (data) {
