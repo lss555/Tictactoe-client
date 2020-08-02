@@ -1,4 +1,7 @@
 'use strict'
+/* eslint-env jquery */
+/* eslint-disable func-call-spacing */
+
 const store = require('../scripts/store')
 
 const config = require('../scripts/config')
@@ -54,7 +57,7 @@ const createGame = function (data) {
 
 const updateGame = function (index, value, over) {
   return $.ajax ({
-    url: config.apiUrl + '/games/' + store.game._id,
+    url: config.apiUrl + `/games/${store.game._id}`,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -62,15 +65,14 @@ const updateGame = function (index, value, over) {
     data: {
       game: {
         cell: {
-          index: 0,
-          value: 'x'
+          index: index,
+          value: value
         },
-        over: false
+        over: over
       }
     }
   })
 }
-
 module.exports = {
   signUp,
   signIn,

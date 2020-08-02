@@ -1,7 +1,7 @@
 # create curl script
 #!/bin/bash
 
-curl "https://library-express-api.herokuapp.com/sign-up" \
+curl "https://tic-tac-toe-api-development.herokuapp.com" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
