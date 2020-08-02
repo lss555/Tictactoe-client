@@ -62,8 +62,10 @@ const changePasswordFailure = function () {
 const createGameSuccess = function (response) {
   $('#create-game-message').text(console.log('New game!'))
   $('.container').show()
+  // $('.container').reset()
+  // trying to reset gameboard not api array
+  console.log(response.game.cells)
   store.game = response.game
-  // console.log(store.game)
   store.player = 0
 }
 
@@ -78,34 +80,41 @@ const updateGameSuccess = function (response) {
   $('#' + store.location).text(store.value)
   // win function ------------->
   const gameWon = function (response) {
-    // determining if there is a winner
+    // determining if there is a winner/tie
     if (zeArray[0] && zeArray[0] === zeArray[1] && zeArray[0] === zeArray[2]) {
       $('#message').text('gz kid ' + store.value + ' wins')
-      $('#gameboard').hide()
+      $('.container').hide()
+      $('section').trigger('reset')
+      // getting board to reset when game won
+      // let resetGameBoard
+      const resetGameBoard = function () {
+        $('#gameboard').reset()
+      }
+      resetGameBoard()
     } else if (zeArray[3] && zeArray[3] === zeArray[4] && zeArray[3] === zeArray[5]) {
       $('#message').text('gz kid ' + store.value + ' wins')
-      $('#gameboard').hide()
+      $('.container').hide()
     } else if (zeArray[6] && zeArray[6] === zeArray[7] && zeArray[6] === zeArray[8]) {
       $('#message').text('gz kid ' + store.value + ' wins')
-      $('#gameboard').hide()
+      $('.container').hide()
     } else if (zeArray[0] && zeArray[0] === zeArray[3] && zeArray[0] === zeArray[6]) {
       $('#message').text('gz kid ' + store.value + ' wins')
-      $('#gameboard').hide()
+      $('.container').hide()
     } else if (zeArray[1] && zeArray[1] === zeArray[4] && zeArray[1] === zeArray[7]) {
       $('#message').text('gz kid ' + store.value + ' wins')
-      $('#gameboard').hide()
+      $('.container').hide()
     } else if (zeArray[2] && zeArray[2] === zeArray[5] && zeArray[2] === zeArray[8]) {
       $('#message').text('gz kid ' + store.value + ' wins')
-      $('#gameboard').hide()
+      $('.container').hide()
     } else if (zeArray[0] && zeArray[0] === zeArray[4] && zeArray[0] === zeArray[8]) {
       $('#message').text('gz kid ' + store.value + ' wins')
-      $('#gameboard').hide()
+      $('.container').hide()
     } else if (zeArray[2] && zeArray[2] === zeArray[4] && zeArray[2] === zeArray[6]) {
       $('#message').text('gz kid ' + store.value + ' wins')
-      $('#gameboard').hide()
+      $('.container').hide()
     } else if (zeArray[0] && zeArray[1] && zeArray[2] && zeArray[3] && zeArray[4] && zeArray[5] && zeArray[6] && zeArray[7] && zeArray[8]) {
       $('#message').text('Can\'t win everything I suppose')
-      $('#gameboard').hide()
+      $('.container').hide()
     }
   }
   gameWon()
