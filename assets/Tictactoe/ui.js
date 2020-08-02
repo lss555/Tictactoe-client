@@ -72,18 +72,23 @@ const createGameFailure = function () {
 }
 
 const updateGameSuccess = function (response) {
-  console.log('response ', response.game.cells)
+  // console.log('response ', response.game)
+  const zeArray = response.game.cells
   store.response = response
   $('#' + store.location).text(store.value)
-
-  // call didSomeoneWin function
-
-
-  // .container
-  // #gameboard
-  // #2
+  // win function ------------->
+  const gameWon = function (response) {
+    // determining if there is a winner
+    if (zeArray[0] && zeArray[0] === zeArray[1] && zeArray[0] === zeArray[2]) {
+      $('#message').text('gz kid ')
+      $('#gameboard').hide()
+    } else if (zeArray[3] && zeArray[3] === zeArray[4] && zeArray[3] === zeArray[5]) {
+      $('#message').text('gz kid ')
+      $('#gameboard').hide()
+    }
+  }
+  gameWon()
 }
-
 const updateGameFailure = function () {
   $('#message').text('Please choose an empty square')
 }

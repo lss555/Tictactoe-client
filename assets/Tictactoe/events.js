@@ -80,7 +80,6 @@ const onUpdateGame = function (event) {
       .then(ui.updateGameSuccess)
       .catch(ui.updateGameFailure)
   }
-
 }
 
 module.exports = {
