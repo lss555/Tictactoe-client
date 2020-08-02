@@ -73,11 +73,22 @@ const updateGame = function (index, value, over) {
     }
   })
 }
+
+const gamesPlayed = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games/',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
   createGame,
-  updateGame
+  updateGame,
+  gamesPlayed
 }

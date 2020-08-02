@@ -21,10 +21,11 @@ const signInSuccess = function (response) {
 
   // hide and show for sign in
   $('#sign-in').hide()
-
+  $('#games-played').show()
   $('#create-game').show()
   $('#sign-out').show()
   $('#change-password').show()
+  $('#sign-up').hide()
 }
 
 const signInFailure = function (data) {
@@ -36,12 +37,15 @@ const signInFailure = function (data) {
 const signOutSuccess = function (data) {
   $('#sign-out-message').text('Signed out!')
   store.user = null
-  $('#sign-out').show()
+  // $('#sign-out').show()
   $('#sign-in').show()
   $('#change-password').hide()
   $('#create-game').hide()
   $('.container').hide()
   $('#sign-out').hide()
+  $('#games-played').hide()
+  $('#message').hide()
+  $('#games-played-message').hide()
 }
 
 const signOutFailure = function (data) {
@@ -125,6 +129,14 @@ const updateGameFailure = function () {
   $('#message').text('Please choose an empty square')
 }
 
+const gamesPlayedSuccess = function (response) {
+  $('#games-played-message').text('you\'ve played ' + response.games.length + ' games')
+}
+
+const gamesPlayedFailure = function (response) {
+  $('#games-played-message').text('failed to find games played')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -137,5 +149,7 @@ module.exports = {
   createGameSuccess,
   createGameFailure,
   updateGameFailure,
-  updateGameSuccess
+  updateGameSuccess,
+  gamesPlayedSuccess,
+  gamesPlayedFailure
 }

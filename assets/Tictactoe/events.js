@@ -79,11 +79,24 @@ const onUpdateGame = function (event) {
   }
 }
 
+const onGamesPlayed = function (event) {
+  event.preventDefault()
+  // event being passed?
+  // const games = store.games
+  // console.log(games)
+  // console.log
+  // store.games =
+  api.gamesPlayed()
+    .then(ui.gamesPlayedSuccess)
+    .catch(ui.gamesPlayedFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
   onCreateGame,
-  onUpdateGame
+  onUpdateGame,
+  onGamesPlayed
 }
