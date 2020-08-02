@@ -45,7 +45,6 @@ const onChangePassword = function (event) {
 
 const onCreateGame = function (event) {
   event.preventDefault()
-  store.player = 'X'
   const form = event.target
   const formData = getFormFields(form)
   api.createGame(formData)
@@ -55,30 +54,34 @@ const onCreateGame = function (event) {
 
 const onUpdateGame = function (event) {
   event.preventDefault()
-  // index is then stored in store.location
-  const index = event.target.id
-  store.location = index
-  // rotating between x and o and checking for empty spaces
-  if (index !== 'X' || index !== 'O') {
-    // const clickedCell = event.target
-    $(index).text(store.player)
-    console.log(store.player)
+  // console.log(event.target.textContent)
+  // check if the `.text` in the box we just clicked on is an empty string
+  // if it is, get the index of the box (the box id)
+  let value = null
+  let currentBox = null
+  if (event.target.textContent === '') {
+    const index = event.target.id
+    store.location = index
+    let marker = ''
+    if (store.player % 2 === 0) {
+      marker = 'X'
+    } else {
+      marker = 'O'
+    }
+    store.value = marker
+    store.player++
+    value = store.value
+    currentBox = store.location
+    api.updateGame(currentBox, value, false)
+      .then(ui.updateGameSuccess)
+      .catch(ui.updateGameFailure)
+  } else {
+    api.updateGame()
+      .then(ui.updateGameSuccess)
+      .catch(ui.updateGameFailure)
   }
 
-// $('.container').click(function () {
-//   // If container is clicked give value of x or o depending on turn and not a blank spot and then print to corresponding currentBox
-//   // then check weather gameOver is true or false and either procced or end game
-let over
-  // could try having same inputs as api?
-  console.log(index)
-  api.updateGame(index, over)
-    .then(ui.updateGameSuccess)
-    .catch(ui.updateGameFailure)
 }
-// store.currentBox = event.target
-// const onGameWon = function (event) {
-//   event.preventDefault()
-// }
 
 module.exports = {
   onSignUp,

@@ -17,5 +17,5 @@ $(() => {
   // $('.container').on('click', authEvents.onUpdateGame)
   // $(".container")index.data("cell-index")
   $('#sign-out').hide()
-  $('.container').on('click', authEvents.onUpdateGame)
+  $('#gameboard').on('click', authEvents.onUpdateGame)
 })

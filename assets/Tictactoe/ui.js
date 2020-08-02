@@ -1,5 +1,5 @@
 'use strict'
-
+/* eslint-env jquery */
 const store = require('../scripts/store')
 
 // sign up functions
@@ -52,7 +52,7 @@ const signOutFailure = function (data) {
 
 const changePasswordSuccess = function (response) {
   $('#change-password-message').text('Password changed!')
-  // store.user = response.user
+
   $('form').trigger('reset')
 }
 const changePasswordFailure = function () {
@@ -63,46 +63,25 @@ const createGameSuccess = function (response) {
   $('#create-game-message').text(console.log('New game!'))
   $('.container').show()
   store.game = response.game
-  console.log(store.game)
-  // $('.cell').text('It works')
+  // console.log(store.game)
+  store.player = 0
 }
 
 const createGameFailure = function () {
   $('#create-game-message').text('no new game')
 }
-// -------------------->
-// update game attempts, ideas, and x/o without ajax
 
-// const updateGameSuccess = function (event) {
-//   document.getElementById('gameboard').addEventListener('click', (event) => {
-//     const currentBox = event.target.innerText
-//     if (!store.player) {
-//       store.player = 0
-//     }
-//     if (store.player % 2 === 0 && currentBox.length !== 1) {
-//       event.target.innerText = 'X'
-//       store.player += 1
-//     } else if ((store.player % 2 === 1 && currentBox.length !== 1)) {
-//       event.target.innerText = 'O'
-//       store.player += 1
-//     } else {
-//       console.log('not a valid move')
-//     }
-//   })
-// }
-// ------------------->
-const updateGameSuccess = function (event) {
-  // $('.container').click(function () {
-  //   // If container is clicked give value of x or o depending on turn and not a blank spot and then print to corresponding currentBox
-  //   // then check weather gameOver is true or false and either procced or end game
-  // const location = store.location
-  //   let value
-  //   if (store.player % 2 === 0) {
-  //     value = 'X'
-  //   } else {
-  //     value = 'O'
-  //   }
-  // })
+const updateGameSuccess = function (response) {
+  console.log('response ', response.game.cells)
+  store.response = response
+  $('#' + store.location).text(store.value)
+
+  // call didSomeoneWin function
+
+
+  // .container
+  // #gameboard
+  // #2
 }
 
 const updateGameFailure = function () {
