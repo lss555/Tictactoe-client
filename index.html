@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="bg">
+
+      <h1 class="title">Tic tac toe</h1>
+
+    <!-- sign up form -->
+<div class="authenticated">
+<section class="sign-up" id="sign-up-section">
+      <form id="sign-up">
+        <input name="credentials[email]" type="text" placeholder="Email here">
+        <input name="credentials[password]" type="password" placeholder="Password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password">
+        <button type="submit" id-"sign-up-button">Sign Up</button>
+      </form>
+    </section>
+      <p id="sign-up-message"></p>
+
+      <!-- sign in form -->
+
+      <section class="unauthenticated">
+        <form class="sign-in" id="sign-in">
+          <input name="credentials[email]" placeholder="email here" type="text">
+          <input name="credentials[password]" placeholder="password here" type="password">
+          <button type="submit">Sign In</button>
+          <p id="sign-in-message"></p>
+        </form>
+      </section>
+
+      <!-- change password form -->
+
+      <form class="change-password" id="change-password">
+        <input name="passwords[old]" type="password" placeholder="Old Password">
+        <input name="passwords[new]" type="password" placeholder="New Password">
+        <button type="submit">Change Password</button>
+      </form>
+      <!-- <p id="change-password-message"></p> -->
+
+      <!-- sign out -->
+
+        <form class="sign-out" id="sign-out">
+          <button type="submit">Sign Out</button>
+        </form>
+
+  </div>
+  <p class="change-password-message" id="change-password-message"></p>
+      <!-- New game button -->
+    <div class="game-functions">
+      <form class="create-game" id="create-game">
+        <button type="submit">Play New Game</button>
+      </form>
+
+
+      <!-- games played  -->
+
+      <div class="games-played" id='games-played'>
+        <button>games played</button>
+      </div>
+    </div>
+
+      <p class="messages default-message">Sign In to play!</p>
+      <p class="messages games-played-message" id='games-played-message'></p>
+      <p class="messages message" id='message'></p>
+
+<!-- Tictactoe board -->
+
+  <section class='container'>
+    <div class='row h-100 board' id = 'gameboard'>
+      <div class='col-4 box' id = '0'></div>
+      <div class='col-4 box' id = '1'></div>
+      <div class='col-4 box' id = '2'></div>
+
+      <div class='col-4 box' id = '3'></div>
+      <div class='col-4 box' id = '4'></div>
+      <div class='col-4 box' id = '5'></div>
+
+      <div class='col-4 box' id = '6'></div>
+      <div class='col-4 box' id = '7'></div>
+      <div class='col-4 box' id = '8'></div>
+    </div>
+ </section>
+
+    </body>
+</html>
