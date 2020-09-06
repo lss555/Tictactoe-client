@@ -2,29 +2,22 @@
 
 .container {
   height: 100vh;
-}
+  }
 
 .box {
-  border-bottom: 1px solid black;
-
-  border-right: 1px solid black;
-
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
   min-height: calc(100% / 3);
-  //centers tic tac toe x's and o's
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background-color: red;
-// make w\hite depending on background pic uploaded
-  color: green;
-  font-size: 15vh;
+  color: black;
+  font-size: 10vh;
   text-shadow: 2px 2px rgba(0, 0, 0, .25);
-
   user-select: none;
 
   &:hover {
-    background-color: LightSkyBlue;
+    background-color: transparent;
   }
 
   &:nth-child(3n) {
@@ -39,10 +32,102 @@
 
 .board {
   margin: auto;
-  max-height: calc(100vh - 75px);
-  max-width: calc(100vh - 75px);
-  // background: url('public/cat.jpg');
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
+  max-height: calc(80vh - 75px);
+  max-width: calc(80vh - 75px);
+  background: url('assets/styles/AK.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+body {
+  background: #7D8C95;
+}
+
+.authenticated {
+  display: flex;
+  justify-content: center;
+}
+
+.sign-out {
+  margin: 0 10px 0 10px;
+}
+
+.game-functions {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.games-played {
+  margin: 10px;
+}
+
+.create-game {
+  margin: 10px;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.games-played-message {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.sign-out-message {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.sign-up {
+  margin: 0 10px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.sign-in {
+  margin: 0 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .messages {
+    color: white;
+  }
+  .sign-out {
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .authenticated {
+    display: block;
+    float: center;
+  }
+  .change-password {
+    margin: 10px;
+    display: block;
+    float: center;
+  }
+}
+
+.default-message {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  font-size: 30px;
+}
+
+.change-password-message {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
 }
