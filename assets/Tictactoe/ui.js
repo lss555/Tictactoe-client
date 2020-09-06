@@ -59,7 +59,6 @@ const signOutFailure = function (data) {
 
 const changePasswordSuccess = function (response) {
   $('#change-password-message').text('Password changed!')
-
   $('form').trigger('reset')
 }
 const changePasswordFailure = function () {
